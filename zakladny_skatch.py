@@ -51,4 +51,3 @@ else:
     Funks.remove_from_list(list_terminov, float(preklad_vybrany_term[0]))
 print(list_terminov)
 
-print("skušame git")
