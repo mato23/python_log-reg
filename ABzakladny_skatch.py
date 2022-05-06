@@ -1,4 +1,4 @@
-import Funks
+import AAFunks
 
 term1 = 22.4
 term2 = 24.4
@@ -16,13 +16,13 @@ meno_2 = input("      a Priezvisko: ")
 print("Dobrý Deň " + meno_1.upper(), meno_2.upper() + "!")
 print(meno_1.upper() + ", Naše voľné termíný sú: ")
 
-Funks.print_under(list_terminov)
+AAFunks.print_under(list_terminov)
 
 interpuk = ", :-"
 bodka = "."
 vybrany_term = input("Napíšte vybraný termín: ")
-preklad_0 = Funks.translate(vybrany_term, interpuk, bodka)
-preklad_vybrany_term = [Funks.trans(preklad_0), ]
+preklad_0 = AAFunks.translate(vybrany_term, interpuk, bodka)
+preklad_vybrany_term = [AAFunks.trans(preklad_0), ]
 
 potvrdenie_2 = True
 otazka = input("Mysleli ste " + preklad_vybrany_term[0] + " ? Y/N : ")
@@ -30,10 +30,10 @@ while potvrdenie_2:
     if "Y" == str(otazka.upper()):
         potvrdenie_2 = False
     elif "N" == str(otazka.upper()):            # input limit dáme and boolpodobne ako v def login
-        Funks.print_under(list_terminov)
+        AAFunks.print_under(list_terminov)
         vybrany_term_2 = input("Napíšte znova vybraný termín: ")
-        preklad_3 = Funks.translate(vybrany_term_2, interpuk, bodka)
-        preklad_4 = Funks.trans(preklad_3)
+        preklad_3 = AAFunks.translate(vybrany_term_2, interpuk, bodka)
+        preklad_4 = AAFunks.trans(preklad_3)
         otazka = input("Mysleli ste " + preklad_4 + " ? Y/N : ")
         preklad_vybrany_term[0] = preklad_4
     else:
@@ -41,13 +41,13 @@ while potvrdenie_2:
         otazka = input("Mysleli ste " + preklad_vybrany_term[0] + " ? Y/N : ")
 
 
-data_bool = Funks.compare_list_data(list_terminov, float(preklad_vybrany_term[0]))
+data_bool = AAFunks.compare_list_data(list_terminov, float(preklad_vybrany_term[0]))
 
 if not data_bool:
     print(" Vami zvolený termín " + str(preklad_vybrany_term[0]) + " nieje v zozname. Prosím zvolte si z "
                                                                    "dostupných termínov! Ďakujeme.")
 else:
     print("Váš termín " + meno_1.upper() + " je " + str(preklad_vybrany_term[0]) + " Tešíme sa na vás!")
-    Funks.remove_from_list(list_terminov, float(preklad_vybrany_term[0]))
+    AAFunks.remove_from_list(list_terminov, float(preklad_vybrany_term[0]))
 print(list_terminov)
 
