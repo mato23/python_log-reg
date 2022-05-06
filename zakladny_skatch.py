@@ -52,3 +52,5 @@ else:
     print("Váš termín " + meno_1.upper() + " je " + str(preklad_vybrany_term[0]) + " Tešíme sa na vás!")
     Funks.remove_from_list(list_terminov, float(preklad_vybrany_term[0]))
 print(list_terminov)
+
+print("skušame git")
