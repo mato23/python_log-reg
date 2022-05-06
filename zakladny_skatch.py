@@ -1,7 +1,5 @@
 import Funks
 
-
-
 term1 = 22.4
 term2 = 24.4
 term3 = 26.4
@@ -24,7 +22,7 @@ interpuk = ", :-"
 bodka = "."
 vybrany_term = input("Napíšte vybraný termín: ")
 preklad_0 = Funks.translate(vybrany_term, interpuk, bodka)
-preklad_vybrany_term =  [Funks.trans(preklad_0)]
+preklad_vybrany_term = [Funks.trans(preklad_0), ]
 
 potvrdenie_2 = True
 otazka = input("Mysleli ste " + preklad_vybrany_term[0] + " ? Y/N : ")
@@ -40,7 +38,7 @@ while potvrdenie_2:
         preklad_vybrany_term[0] = preklad_4
     else:
         print("Nespárvny input!")
-        otazka = input("Mysleli ste " + preklad_2[0] + " ? Y/N : ")
+        otazka = input("Mysleli ste " + preklad_vybrany_term[0] + " ? Y/N : ")
 
 
 data_bool = Funks.compare_list_data(list_terminov, float(preklad_vybrany_term[0]))
