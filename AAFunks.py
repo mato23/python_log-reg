@@ -1,3 +1,5 @@
+import random
+
 def add_into_list(database, in_put):
     if in_put not in database:
         database.append(in_put)
@@ -33,6 +35,23 @@ def translate(phrase, string, string2):  # call = print(translate())
         else:
             translation = translation + letter
     return translation
+
+
+def check_phrase(phrase, pole):
+    for jednotka in phrase:
+        if jednotka in pole:
+            return True
+
+
+def list_into_tuple(database):
+    return tuple(database)
+
+
+def string_na_pole(string):
+    pole = []
+    for letter in string:
+        pole.append(letter)
+    return pole
 
 
 def log_in(password, in_put, in_put_limit):
@@ -81,4 +100,11 @@ def trans(phrase):  # call = print(translate())
         else:
             translation = translation + letter
     return translation
+
+
+def user_num(database):
+    num = ()
+    if num not in database:
+        num = random.random()
+        return num
 
