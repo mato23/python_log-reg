@@ -42,6 +42,15 @@ def check_phrase(phrase, pole):
         if jednotka in pole:
             return True
 
+def dnajw(phrase, pole):
+    counter = 0
+    for jednotka in phrase:
+        if jednotka in pole:
+            counter += 1
+    if counter >= 1:
+        return True
+    else:
+        return False
 
 def list_into_tuple(database):
     return tuple(database)
