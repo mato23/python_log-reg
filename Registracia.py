@@ -34,11 +34,11 @@ while create:
 
 create = True
 while create:
-    username = input("Username: ")
+    username = input("Prihlasovacie meno: ")
     database = cursor.execute("select username from login_user")
     cursor.fetchone()
     if username in database:
-        print("Username už existuje.")
+        print("Prihlasovacie meno už existuje.")
         continue
     else:
         registration.append(username)

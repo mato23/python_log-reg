@@ -38,11 +38,6 @@ def translate(phrase, string, string2):  # call = print(translate())
 
 
 def check_phrase(phrase, pole):
-    for jednotka in phrase:
-        if jednotka in pole:
-            return True
-
-def dnajw(phrase, pole):
     counter = 0
     for jednotka in phrase:
         if jednotka in pole:
@@ -51,6 +46,7 @@ def dnajw(phrase, pole):
         return True
     else:
         return False
+
 
 def list_into_tuple(database):
     return tuple(database)
