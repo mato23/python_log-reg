@@ -26,3 +26,7 @@ while logining:
     else:
         print("Zlé prihlasovacie meno !")
         continue
+
+# pre login vytvoríme ChildClass kde sa človek po zaregistrovaní može prihlasiť naserver ako
+# uživaťeľ ale aj ako admin kde stránky už budu mať rozdielnu funkcionalitu admin bdue vytvárať
+# uživateľske rozhranie a a uživateľ samozrejme použivať to rozhranie
