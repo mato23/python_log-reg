@@ -1,30 +1,3 @@
-import random
-
-def add_into_list(database, in_put):
-    if in_put not in database:
-        database.append(in_put)
-        return database
-    else:
-        if in_put in database:
-            return True
-
-
-def remove_from_list(database, in_put):
-    if in_put in database:
-        database.remove(in_put)
-        return database
-    else:
-        return False
-
-
-def print_under(data):
-    for jednotku in data:
-        print(jednotku)
-
-
-def compare_list_data(name_list, data):
-    if data in name_list:
-        return True
 
 
 def translate(phrase, string, string2):  # call = print(translate())
@@ -48,10 +21,6 @@ def check_phrase(phrase, pole):
         return False
 
 
-def list_into_tuple(database):
-    return tuple(database)
-
-
 def string_na_pole(string):
     pole = []
     for letter in string:
@@ -70,16 +39,14 @@ def log_in(password, in_put, in_put_limit):
         else:
             zoznam = True
     if zoznam:
-        print("Wrong Password")
         return not zoznam
     elif in_put == password:
-        print("Vitajte!")
         return not zoznam
 
 
 def trans(phrase):  # call = print(translate())
     translation = ""
-    rad1 = ["+", "ľ", "š", "č", "ť","ž", "ý", "á", "í", "é"]
+    rad1 = ["+", "ľ", "š", "č", "ť", "ž", "ý", "á", "í", "é"]
     rad2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     for letter in phrase:
         if letter in rad1[0]:
@@ -105,11 +72,3 @@ def trans(phrase):  # call = print(translate())
         else:
             translation = translation + letter
     return translation
-
-
-def user_num(database):
-    num = ()
-    if num not in database:
-        num = random.random()
-        return num
-

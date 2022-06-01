@@ -26,7 +26,13 @@ registration = []
 create = True
 while create:
     user_num = random.randint(1, 9999)
-    if user_num not in cursor.execute("select user_number from login_user"):
+    cursor.execute("select user_number from login_user")
+    counter = 0
+    for row1 in cursor.fetchall():
+        for row in row1:
+            if int(user_num) == int(row):
+                counter += 1
+    if counter == 0:
         registration.append(int(user_num))
         create = False
     else:
@@ -35,14 +41,17 @@ while create:
 create = True
 while create:
     username = input("Prihlasovacie meno: ")
-    database = cursor.execute("select username from login_user")
-    cursor.fetchone()
-    if username in database:
-        print("Prihlasovacie meno už existuje.")
-        continue
-    else:
-        registration.append(username)
+    cursor.execute("select username from login_user")
+    counter = 0
+    for row1 in cursor.fetchall():
+        for row in row1:
+            if str(username) == str(row):
+                counter += 1
+    if counter == 0:
+        registration.append(str(username))
         create = False
+    else:
+        print("Prihlasovacie meno existuje!")
 
 
 create = True
@@ -67,17 +76,32 @@ surname = input("Vaše priezvisko: ")
 name_surname = name.replace(name[0], name[0].upper()) + " " + surname.replace(surname[0], surname[0].upper())
 registration.append(str(name_surname))
 
-email = input("Vaša emailová adresa: ")
-registration.append(str(email))
+create = True
+while create:
+    email = input("Vaša emailová adresa: ")                 # mozno by to chelo pridat if statment aby chcekol
+    cursor.execute("select email from login_user")          # ci nahodou email adress allready exist
+    counter = 0                                             # if statment nefunguje pretoze cursor.fetchall vytiahne
+    for row1 in cursor.fetchall():                          # v zlom formate
+        for row in row1:
+            if str(email) == str(row):
+                counter += 1
+    if counter == 0:
+        registration.append(str(email))
+        create = False
+    else:
+        print("Emailova adresa existuje!")
 
 tel_num = input("Vaše tel. číslo: ")
 registration.append(int(tel_num))
 
 
-registration1 = [AAFunks.list_into_tuple(registration)]
+registration1 = [tuple(registration)]
 
-
+print(registration1)
 cursor.executemany("insert into login_user values(?,?,?,?,?,?)", registration1)
+
+# cursor.execute("select * from login_user")
+# print(cursor.fetchall())
 
 login_user_data.commit()
 login_user_data.close()
